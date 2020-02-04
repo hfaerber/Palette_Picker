@@ -1,7 +1,16 @@
 @import './variables.scss';
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  background-color:
+  background-color: $dark-text-color;
+  color: $light-text-color;
+  font-family: $main-font;
   height: 100vh;
+  text-align: center;
   width: 100vw;
 }
