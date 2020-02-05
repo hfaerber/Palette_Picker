@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Login.scss';
 
 const Login = props => {
@@ -11,6 +12,7 @@ const Login = props => {
     if (validateSubmit()) {
       const user = {username, password};
       props.setUser(user);
+      props.history.push('/home');
     } else {
       setError('Both fields are required.');
     }
@@ -44,4 +46,4 @@ const Login = props => {
   )
 }
 
-export default Login;
+export default withRouter(Login);
