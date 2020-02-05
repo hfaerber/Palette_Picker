@@ -19,13 +19,23 @@ const Login = () => {
     return username && password ? true : false
   }
 
+  const handleChange = ({ target }) => {
+    const { id } = target;
+    setError('');
+    if (id === 'username') {
+      setUsername(target.value);
+    } else {
+      setPassword(target.value);
+    }
+  }
+
   return (
     <div className="login">
       <h1>Palette Picker</h1>
       <span className="form-label">Please sign in to start pickin' palettes:</span>
       <form className="login-form" onSubmit={event => handleSubmit(event)}>
-        <input className="username" type="text" placeholder="Username..." value={username} onChange={event => setUsername(event.target.value)}/>
-        <input className="password" type="password" placeholder="Password..." value={password} onChange={event => setPassword(event.target.value)}/>
+        <input className="username" id="username" type="text" placeholder="Username..." value={username} onChange={e => handleChange(e)}/>
+        <input className="password" id="password" type="password" placeholder="Password..." value={password} onChange={e => handleChange(e)}/>
         <button type="submit" className="login-submit">Sign In</button>
       </form>
       <span className="login-error">{error}</span>
