@@ -64,16 +64,13 @@ h1 {
 }
 
 .login-error {
-  background-color: rgba(100, 0, 0, 0.5);
+  color: red;
   display: block;
   font-size: 1.1rem;
-  height: 40px;
   margin: {
     left: 24.5%;
     right: auto;
     top: 3%;
   }
-  padding: 5px;
   text-align: left;
-  width: 15.3%;
 }
