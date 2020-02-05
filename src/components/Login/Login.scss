@@ -1,0 +1,64 @@
+@import '../../variables.scss';
+
+.login {
+  background: {
+    image: url('../../images/wave1.png');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+h1, .form-label, .login-form {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  width: 51%;
+}
+
+h1 {
+  font: {
+    family: $title-font;
+    size: 5rem;
+  }
+  text-decoration: underline;
+}
+
+.form-label {
+  display: block;
+  font-size: 1.7rem;
+  margin-top: 15%;
+  text-align: left;
+}
+
+.login-form {
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.username, .password {
+  border: none;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  padding: 5px;
+  width: 30%;
+}
+
+.login-submit {
+  background-color: $accent-color-1;
+  border: none;
+  border-radius: 45px;
+  color: $dark-text-color;
+  font-size: 1.4rem;
+  width: 20%;
+  &:active {
+    background-color: $dark-text-color;
+    color: $light-text-color;
+  }
+}
