@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.scss';
 
-const Login = () => {
+const Login = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -9,7 +9,8 @@ const Login = () => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateSubmit()) {
-
+      const user = {username, password};
+      props.setUser(user);
     } else {
       setError('Both fields are required.');
     }
