@@ -17,7 +17,11 @@
 .home-nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  margin: {
+    left: 40px;
+    right: 40px;
+  }
+  padding-top: 20px;
 }
 
 h2 {
@@ -39,4 +43,36 @@ h2 {
     color: $medium-text-color;
     text-decoration: none;
   }
+}
+
+.profile-icon {
+  color: $light-text-color;
+  height: 150px;
+  margin: none;
+}
+
+.user-container {
+  width: 15%;
+}
+
+.project-section {
+  display: flex;
+  height: 400px;
+  justify-content: space-between;
+  margin: {
+    left: 40px;
+    right: 40px;
+    top: 5%;
+  }
+}
+
+.projects-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  width: 75%;
+}
+
+.username-label {
+  display: block;
+  font-size: 2rem;
 }
