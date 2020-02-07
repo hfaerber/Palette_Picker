@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
-      <Route exact path='/home' render={() => <Home />} />
+      <Route exact path='/home' render={() => <Home setUser={setUser}/>} />
     </div>
   )
 }
