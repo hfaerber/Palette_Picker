@@ -5,8 +5,9 @@ import Home from './components/Home/Home';
 import './App.scss';
 
 const App = () => {
-  const [user, setUser] = useState({});
-  const homeProps = {user: user.username, setUser};
+  const [user, setUser] = useState('');
+  const [projects, setProjects] = useState([]);
+  const homeProps = {user, setUser, projects};
   return (
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />

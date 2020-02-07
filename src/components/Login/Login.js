@@ -10,8 +10,7 @@ export const Login = props => {
   const handleSubmit = e => {
     e.preventDefault();
     if (validateSubmit()) {
-      const user = {username, password};
-      props.setUser(user);
+      props.setUser(username);
       props.history.push('/home');
     } else {
       setError('Both fields are required.');
