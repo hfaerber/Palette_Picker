@@ -6,10 +6,11 @@ import './App.scss';
 
 const App = () => {
   const [user, setUser] = useState({});
+  const homeProps = {user: user.username, setUser};
   return (
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
-      <Route exact path='/home' render={() => <Home setUser={setUser}/>} />
+      <Route exact path='/home' render={() => <Home {...homeProps}/>} />
     </div>
   )
 }
