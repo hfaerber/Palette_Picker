@@ -8,7 +8,7 @@ import './App.scss';
 const App = () => {
   const [user, setUser] = useState('');
   const [projects, setProjects] = useState([]);
-  const homeProps = {user, setUser, projects};
+  const homeProps = {user, setUser, projects, setProjects};
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,7 +20,6 @@ const App = () => {
       }
     };
     fetchProjects();
-    console.log(fetchProjects());
   });
 
   return (
