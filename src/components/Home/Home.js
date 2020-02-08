@@ -7,17 +7,17 @@ export const handleProjectSubmit = async projectHooks => {
   if (projectHooks.newProject) {
     try {
       const projectID = await addProject(projectHooks.newProject);
-      const newProject =  await getProjects(projectID.id);
-      projectHooks.setProjects([...projectHooks.projects, newProject]);
+      const newProjectObj =  await getProjects(projectID.id);
+      projectHooks.setProjects([...projectHooks.projects, newProjectObj]);
       projectHooks.setNewProject('');
     } catch(error) {
         console.log(error);
-        projectHooks.setError('There was a problem creating your project.')
+        projectHooks.setError('There was a problem creating your project.');
     }
   } else {
       projectHooks.setError('Please enter a name.');
   }
-}
+};
 
 const Home = props => {
   const [newProject, setNewProject] = useState('');
@@ -27,7 +27,7 @@ const Home = props => {
   const projectNodes = projects.map(project => {
     return (
       <div className="project-button" key={project.id} id={project.id}>
-        <img className="project-icon" src={require("../../images/icons/pantone.svg")}/>
+        <img className="project-icon" src={require("../../images/icons/pantone.svg")} alt="Project-Icon"/>
         <span className="project-name">{project.name}</span>
       </div>
     )
@@ -41,7 +41,7 @@ const Home = props => {
       </nav>
       <section className="project-section">
         <div className="user-container">
-          <img className="profile-icon" src={require("../../images/icons/user.svg")}/>
+          <img alt="Profile Icon" className="profile-icon" src={require("../../images/icons/user.svg")}/>
           <span className="username-label">{user}</span>
         </div>
         <div className="projects-container">
@@ -53,7 +53,7 @@ const Home = props => {
                 setNewProject(e.target.value);
                 setError('');
               }} value={newProject}/>
-              <img className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
+              <img alt="Add Icon" className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
           <div className="small-project-wrapper">
