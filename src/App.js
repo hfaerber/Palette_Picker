@@ -20,7 +20,7 @@ const App = () => {
       }
     };
     fetchProjects();
-  });
+  }, [user]);
 
   return (
     <div className="App">
