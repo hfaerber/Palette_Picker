@@ -4,7 +4,6 @@ import { addProject, getProjects } from '../../apiCalls.js';
 import './Home.scss';
 
 export const handleProjectSubmit = async projectHooks => {
-  const { setNewProject, projects, setProjects } = projectHooks;
   if (projectHooks.newProject) {
     try {
       const projectID = await addProject(projectHooks.newProject);
@@ -13,16 +12,18 @@ export const handleProjectSubmit = async projectHooks => {
       projectHooks.setNewProject('');
     } catch(error) {
         console.log(error);
+        projectHooks.setError('There was a problem creating your project.')
     }
   } else {
-      console.log('Error!');
+      projectHooks.setError('Please enter a name.');
   }
 }
 
 const Home = props => {
   const [newProject, setNewProject] = useState('');
+  const [error, setError] = useState('');
   const { user, setUser, projects, setProjects } = props;
-  const addProjectHooks = {newProject, setNewProject, projects, setProjects};
+  const addProjectHooks = {newProject, setNewProject, projects, setProjects, setError};
   const projectNodes = projects.map(project => {
     return (
       <div className="project-button" key={project.id} id={project.id}>
@@ -46,8 +47,12 @@ const Home = props => {
         <div className="projects-container">
           <div className="projects-header">
             <h3>Your Projects:</h3>
+            <span className="add-project-error">{error}</span>
             <div className="add-project-wrapper">
-              <input className="add-project" type="text" placeholder="New Project" onChange={e => setNewProject(e.target.value)} value={newProject}/>
+              <input className="add-project" type="text" placeholder="New Project" onChange={e => {
+                setNewProject(e.target.value);
+                setError('');
+              }} value={newProject}/>
               <img className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
@@ -56,6 +61,7 @@ const Home = props => {
           </div>
         </div>
       </section>
+      <div className="divider"></div>
     </div>
   )
 }
