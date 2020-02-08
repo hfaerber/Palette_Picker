@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from './Login.js';
+import { Login, handleChange } from './Login.js';
 import { shallow } from 'enzyme';
 
 describe('Login', () => {
@@ -19,7 +19,7 @@ describe('Login', () => {
 
   it('Should invoke the handleSubmit method when there is a change on the username input', () => {
     wrapper.find('#username').simulate('change', mockEvent);
-    expect(instance.handleChange).toHaveBeenCalledWith('username');
+    expect(handleChange).toHaveBeenCalledWith('username');
   });
 
 
