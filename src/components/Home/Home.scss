@@ -1,0 +1,164 @@
+@import '../../variables.scss';
+
+.home {
+  background: {
+    color: rgba(0,0,0,0.5);
+    image: url('../../images/wave2.png');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  background-blend-mode: darken;
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.home-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: {
+    left: 40px;
+    right: 40px;
+  }
+  padding-top: 20px;
+}
+
+h2 {
+  font: {
+    family: $title-font;
+    size: 2.5rem;
+  }
+  text-decoration: underline;
+}
+
+.sign-out {
+  color: $light-text-color;
+  font-size: 1.2rem;
+  margin: {
+    bottom: auto;
+    top: auto;
+  }
+  &:hover {
+    color: $medium-text-color;
+    text-decoration: none;
+  }
+}
+
+.profile-icon {
+  color: $light-text-color;
+  height: 150px;
+  margin: none;
+}
+
+.user-container {
+  width: 15%;
+}
+
+.project-section {
+  display: flex;
+  height: 450px;
+  justify-content: space-between;
+  margin: {
+    left: 40px;
+    right: 40px;
+    top: 5%;
+  }
+}
+
+.projects-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  color: $dark-text-color;
+  overflow-x: scroll;
+  padding-bottom: 20px;
+  width: 75%;
+}
+
+.username-label {
+  display: block;
+  font-size: 2rem;
+}
+
+.projects-header {
+  display: flex;
+  height: 45px;
+  justify-content: space-between;
+  margin-top: 2%;
+  padding: {
+    left: 20px;
+    right: 190px;
+  }
+}
+
+.add-project-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.add-icon {
+  height: 100%;
+  &:active {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255,255, 0) 100%);
+    border-radius: 50%;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.add-project {
+  font-size: 1.2rem;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.small-project-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin: {
+    left: auto;
+    right: auto;
+    top: 40px;
+  }
+  width: 90%;
+}
+
+.project-button {
+  border-radius: 4px;
+  padding: 10px;
+  &:hover {
+    background-color: $light-text-color;
+  }
+  &:active {
+    background-color: #FFF200;
+  }
+}
+
+.project-icon {
+  height: 100px;
+}
+
+.project-name {
+  display: block;
+  margin-top: 20px;
+}
+
+.divider {
+  background-color: $light-text-color;
+  min-height: 5px;
+  margin: {
+    left: auto;
+    right: auto;
+    top: 10%;
+  }
+  width: 95%;
+}
+
+.add-project-error {
+  font-size: 1.2rem;
+}
