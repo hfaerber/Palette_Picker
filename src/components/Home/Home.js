@@ -7,8 +7,8 @@ export const handleProjectSubmit = async projectHooks => {
   const { setNewProject, projects, setProjects } = projectHooks;
   if (projectHooks.newProject) {
     try {
-      const projectID = await addProject(projectHooks.newProject).id;
-      const newProject =  await getProjects(projectID);
+      const projectID = await addProject(projectHooks.newProject);
+      const newProject =  await getProjects(projectID.id);
       projectHooks.setProjects([...projectHooks.projects, newProject]);
       projectHooks.setNewProject('');
     } catch(error) {
@@ -47,7 +47,7 @@ const Home = props => {
           <div className="projects-header">
             <h3>Your Projects:</h3>
             <div className="add-project-wrapper">
-              <input className="add-project" type="text" placeholder="New Project" onChange={e => setNewProject(e.target.value)}/>
+              <input className="add-project" type="text" placeholder="New Project" onChange={e => setNewProject(e.target.value)} value={newProject}/>
               <img className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
