@@ -18,10 +18,36 @@ export const addProject = async name => {
       'Content-Type': 'application/json'
     }
   };
-  const response = await fetch('https://palette-picks.herokuapp.com/api/v1/projects', options);
+  const response = await
+    fetch('https://palette-picks.herokuapp.com/api/v1/projects', options);
   if(!response.ok) {
     throw new Error('Error: There was a problem adding your project.');
   }
   const id = await response.json();
   return id
 };
+
+export const getPalettes = async (projectId) => {
+  const url =
+    `https://palette-picks.herokuapp.com/api/v1/projects/${projectId}/palettes`;
+  const errorMessage =
+    `Error: There was a problem getting the palettes for project id ${projectId}`;
+  return getRequestedData(url, errorMessage);
+};
+
+export const getSpecificPalette = async (paletteId) => {
+  const url =
+    `https://palette-picks.herokuapp.com/api/v1/palettes/${paletteId}`;
+  const errorMessage =
+    `Error: There was a problem getting palette id ${paletteId}`;
+  return getRequestedData(url, errorMessage);
+};
+
+const getRequestedData = async (url, errorMessage) => {
+  const response = await fetch(url);
+  if(!response.ok) {
+    throw new Error(`${errorMessage}`)
+  }
+  const data = await response.json();
+  return data
+}
