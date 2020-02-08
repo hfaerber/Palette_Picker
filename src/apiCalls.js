@@ -22,6 +22,6 @@ export const addProject = async name => {
   if(!response.ok) {
     throw new Error('Error: There was a problem adding your project.');
   }
-  const project = await response.json();
-  return project
+  const id = await response.json();
+  return id
 };

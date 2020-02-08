@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addProject } from '../../apiCalls.js';
+import { addProject, getProjects } from '../../apiCalls.js';
 import './Home.scss';
+
+export const handleProjectSubmit = async projectHooks => {
+  const { setNewProject, projects, setProjects } = projectHooks;
+  if (projectHooks.newProject) {
+    try {
+      const projectID = await addProject(projectHooks.newProject).id;
+      const newProject =  await getProjects(projectID);
+      projectHooks.setProjects([...projectHooks.projects, newProject]);
+      projectHooks.setNewProject('');
+    } catch(error) {
+        console.log(error);
+    }
+  } else {
+      console.log('Error!');
+  }
+}
 
 const Home = props => {
   const [newProject, setNewProject] = useState('');
   const { user, setUser, projects, setProjects } = props;
+  const addProjectHooks = {newProject, setNewProject, projects, setProjects};
   const projectNodes = projects.map(project => {
     return (
       <div className="project-button" key={project.id} id={project.id}>
@@ -31,7 +48,7 @@ const Home = props => {
             <h3>Your Projects:</h3>
             <div className="add-project-wrapper">
               <input className="add-project" type="text" placeholder="New Project" onChange={e => setNewProject(e.target.value)}/>
-              <img className="add-icon" src={require("../../images/icons/add-button.svg")}/>
+              <img className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
           <div className="small-project-wrapper">
