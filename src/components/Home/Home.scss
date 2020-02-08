@@ -69,10 +69,42 @@ h2 {
 .projects-container {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
+  color: $dark-text-color;
   width: 75%;
 }
 
 .username-label {
   display: block;
   font-size: 2rem;
+}
+
+.projects-header {
+  display: flex;
+  height: 45px;
+  justify-content: space-between;
+  margin-top: 2%;
+  padding: {
+    left: 20px;
+    right: 190px;
+  }
+}
+
+.add-project-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.add-icon {
+  height: 100%;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.add-project {
+  font-size: 1.2rem;
+  margin-right: 20px;
+  padding: 5px;
 }
