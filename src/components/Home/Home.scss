@@ -57,7 +57,7 @@ h2 {
 
 .project-section {
   display: flex;
-  height: 400px;
+  height: 450px;
   justify-content: space-between;
   margin: {
     left: 40px;
@@ -70,6 +70,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   color: $dark-text-color;
+  overflow-x: scroll;
   width: 75%;
 }
 
@@ -112,4 +113,25 @@ h3 {
   font-size: 1.2rem;
   margin-right: 20px;
   padding: 5px;
+}
+
+.small-project-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin: {
+    left: auto;
+    right: auto;
+    top: 40px;
+  }
+  width: 90%;
+}
+
+.project-icon {
+  height: 100px;
+}
+
+.project-name {
+  display: block;
+  margin-top: 20px;
 }
