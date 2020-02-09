@@ -65,4 +65,22 @@ export const addPalette = async (project_id, palette_body) => {
   }
   const id = await response.json();
   return id
+};
+
+export const removeItem = async (id, item) => {
+  const url = item === 'project' ?
+    `https://palette-picks.herokuapp.com/api/v1/projects/${id}` :
+    `https://palette-picks.herokuapp.com/api/v1/palettes/${id}`;
+  const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+  const response = await fetch(url, options);
+  if(!response.ok) {
+    throw new Error(`Error: There was a problem deleting ${item} id ${id}.`);
+  }
+  const responseMessage = await response.json();
+  return responseMessage;
 }
