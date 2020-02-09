@@ -1,4 +1,4 @@
-import { getProjects, addProject, getPalettes, getSpecificPalette, addPalette, removeItem }
+import { getProjects, addProject, getPalettes, getSpecificPalette, addPalette, removeItem, updateItem }
   from './apiCalls';
 
 describe('getProjects', () => {
@@ -375,6 +375,99 @@ describe('removeItem', () => {
       });
       expect(removeItem(mockId, 'palette')).rejects.toEqual(
         Error('Error: There was a problem deleting palette id 500.'));
+    });
+  });
+
+});
+
+describe('updateItem', () => {
+
+  describe('update Project', () => {
+    let mockId = 123;
+    let mockUpdated_Name: 'New and Improved Project Name';
+    let mockResponse = { id: 123 };
+    const mockOptions = {
+      method: 'PATCH',
+      body: JSON.stringify({name: mockUpdated_Name}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse);
+          }
+        });
+      });
+    });
+
+    it('should be passed the correct URL', () => {
+      updateItem(mockId, 'project', mockUpdated_Name);
+      expect(window.fetch).toHaveBeenCalledWith(
+        'https://palette-picks.herokuapp.com/api/v1/projects/123',
+          mockOptions);
+    });
+
+    it('should return an object with the project id', () => {
+      expect(updateItem(mockId, 'project', mockUpdated_Name)).resolves.toEqual(mockResponse);
+    });
+
+    it('should return an error for a response that is not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+      expect(updateItem(mockId, 'project', mockUpdated_Name)).rejects.toEqual(
+        Error('Error: There was a problem updating project id 123.'));
+    });
+  });
+
+  describe('update Palette', () => {
+    let mockId = 500;
+    let mockUpdated_Name: 'New and Improved Palette Name';
+    let mockResponse = { id: 500 };
+    const mockOptions = {
+      method: 'PATCH',
+      body: JSON.stringify({name: mockUpdated_Name}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse);
+          }
+        });
+      });
+    });
+
+    it('should be passed the correct URL', () => {
+      updateItem(mockId, 'palette', mockUpdated_Name);
+      expect(window.fetch).toHaveBeenCalledWith(
+        'https://palette-picks.herokuapp.com/api/v1/palettes/500',
+          mockOptions);
+    });
+
+    it('should return an object with the project id', () => {
+      expect(updateItem(mockId, 'palette', mockUpdated_Name)).resolves.toEqual(mockResponse);
+    });
+
+    it('should return an error for a response that is not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+      expect(updateItem(mockId, 'palette', mockUpdated_Name)).rejects.toEqual(
+        Error('Error: There was a problem updating palette id 500.'));
     });
   });
 
