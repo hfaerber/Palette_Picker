@@ -1,4 +1,4 @@
-import { getProjects, addProject, getPalettes, getSpecificPalette, addPalette }
+import { getProjects, addProject, getPalettes, getSpecificPalette, addPalette, removeItem }
   from './apiCalls';
 
 describe('getProjects', () => {
@@ -288,4 +288,94 @@ describe('addPalette', () => {
     expect(addPalette(mockProjectId, mockBody)).rejects.toEqual(
       Error('Error: There was a problem adding your palette.'));
   });
+});
+
+describe('removeItem', () => {
+
+  describe('remove Project', () => {
+    let mockId = 123;
+    let mockResponse = `Project with id 123 has been removed successfully`;
+    const mockOptions = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse);
+          }
+        });
+      });
+    });
+
+    it('should be passed the correct URL', () => {
+      removeItem(mockId, 'project');
+      expect(window.fetch).toHaveBeenCalledWith(
+        'https://palette-picks.herokuapp.com/api/v1/projects/123',
+          mockOptions);
+    });
+
+    it('should return an object with the project id', () => {
+      expect(removeItem(mockId, 'project')).resolves.toEqual(mockResponse);
+    });
+
+    it('should return an error for a response that is not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+      expect(removeItem(mockId, 'project')).rejects.toEqual(
+        Error('Error: There was a problem deleting project id 123.'));
+    });
+  });
+
+  describe('remove Palette', () => {
+    let mockId = 500;
+    let mockResponse = `Palette with id 500 has been removed successfully`;
+    const mockOptions = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => {
+            return Promise.resolve(mockResponse);
+          }
+        });
+      });
+    });
+
+    it('should be passed the correct URL', () => {
+      removeItem(mockId, 'palette');
+      expect(window.fetch).toHaveBeenCalledWith(
+        'https://palette-picks.herokuapp.com/api/v1/palettes/500',
+          mockOptions);
+    });
+
+    it('should return an object with the project id', () => {
+      expect(removeItem(mockId, 'palette')).resolves.toEqual(mockResponse);
+    });
+
+    it('should return an error for a response that is not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+      expect(removeItem(mockId, 'palette')).rejects.toEqual(
+        Error('Error: There was a problem deleting palette id 500.'));
+    });
+  });
+
 });
