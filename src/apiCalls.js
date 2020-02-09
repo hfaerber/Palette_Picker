@@ -83,4 +83,25 @@ export const removeItem = async (id, item) => {
   }
   const responseMessage = await response.json();
   return responseMessage;
-}
+};
+
+export const updateItem = async (id, item, updated_name) => {
+  const url = item === 'project' ?
+    `https://palette-picks.herokuapp.com/api/v1/projects/${id}` :
+    `https://palette-picks.herokuapp.com/api/v1/palettes/${id}`;
+  const options = {
+    method: 'PATCH',
+    body: JSON.stringify({name: updated_name}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const response = await fetch(url, options);
+  if(!response.ok) {
+    throw new Error(`Error: There was a problem updating ${item} id ${id}.`);
+  }
+  const responseId = await response.json();
+  return responseId;
+};
+
+// { id: id[0] }
