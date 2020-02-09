@@ -142,50 +142,93 @@ describe('getPalettes', () => {
     expect(getPalettes(mockProjectId)).rejects.toEqual(Error('Error: There was a problem getting the palettes for project id 3230'
     ));
   });
+});
 
-  describe('Get a specific palette', () => {
-    let mockResponse = { id: 181,
-      name: 'Sample Palette one',
-      color_one: '#F7D951',
-      color_two: '#75B1FF',
-      color_three: '#985EEE',
-      color_four: '#5ED49B',
-      color_five: '#44638F',
-      projects_id: 91,
-      created_at: '2020-02-05T01:49:59.421Z',
-      updated_at: '2020-02-05T01:49:59.421Z' };
-    let mockPaletteId = 181;
+describe('Get a specific palette', () => {
+  let mockResponse = { id: 181,
+    name: 'Sample Palette one',
+    color_one: '#F7D951',
+    color_two: '#75B1FF',
+    color_three: '#985EEE',
+    color_four: '#5ED49B',
+    color_five: '#44638F',
+    projects_id: 91,
+    created_at: '2020-02-05T01:49:59.421Z',
+    updated_at: '2020-02-05T01:49:59.421Z' };
+  let mockPaletteId = 181;
 
-    beforeEach(() => {
-      window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          ok: true,
-          json: () => {
-            return Promise.resolve(mockResponse);
-          }
-        });
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => {
+          return Promise.resolve(mockResponse);
+        }
       });
-    });
-
-    it('should be passed the correct URL', () => {
-      getSpecificPalette(mockPaletteId);
-      expect(window.fetch).toHaveBeenCalledWith(
-        'https://palette-picks.herokuapp.com/api/v1/palettes/181'
-      );
-    });
-
-    it('should return an object with an array of projects', () => {
-      expect(getSpecificPalette(mockPaletteId)).resolves.toEqual(mockResponse);
-    });
-
-    it('should return an error for a response that is not ok', () => {
-      window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          ok: false
-        })
-      });
-      expect(getSpecificPalette(mockPaletteId)).rejects.toEqual(Error('Error: There was a problem getting palette id 181'
-      ));
     });
   });
+
+  it('should be passed the correct URL', () => {
+    getSpecificPalette(mockPaletteId);
+    expect(window.fetch).toHaveBeenCalledWith(
+      'https://palette-picks.herokuapp.com/api/v1/palettes/181'
+    );
+  });
+
+  it('should return an object with an array of projects', () => {
+    expect(getSpecificPalette(mockPaletteId)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error for a response that is not ok', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+    expect(getSpecificPalette(mockPaletteId)).rejects.toEqual(Error('Error: There was a problem getting palette id 181'
+    ));
+  });
 });
+
+describe('addProject', () => {
+  let mockName = 'Sample Palette Three'
+  let mockResponse = { id: 200 };
+  const mockOptions = {
+    method: 'POST',
+    body: JSON.stringify({name: mockName}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => {
+          return Promise.resolve(mockResponse);
+        }
+      });
+    });
+  });
+
+  it('should be passed the correct URL', () => {
+    addProject(mockName);
+    expect(window.fetch).toHaveBeenCalledWith(
+      'https://palette-picks.herokuapp.com/api/v1/projects', mockOptions);
+  });
+
+  it('should return an object with the project id', () => {
+    expect(addProject(mockName)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error for a response that is not ok', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+    expect(addProject(mockName)).rejects.toEqual(Error('Error: There was a problem adding your project.'
+    ));
+  });
+})
