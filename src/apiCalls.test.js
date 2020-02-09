@@ -1,4 +1,5 @@
-import { getProjects, addProject, getPalettes, getSpecificPalette } from './apiCalls';
+import { getProjects, addProject, getPalettes, getSpecificPalette, addPalette }
+  from './apiCalls';
 
 describe('getProjects', () => {
 
@@ -41,7 +42,8 @@ describe('getProjects', () => {
           ok: false
         })
       });
-      expect(getProjects()).rejects.toEqual(Error('Error: There was a problem getting your projects'));
+      expect(getProjects()).rejects.toEqual(Error(
+        'Error: There was a problem getting your projects'));
     });
   });
 
@@ -82,7 +84,8 @@ describe('getProjects', () => {
           ok: false
         })
       });
-      expect(getProjects(mockId)).rejects.toEqual(Error('Error: There was a problem getting your projects'));
+      expect(getProjects(mockId)).rejects.toEqual(Error(
+        'Error: There was a problem getting your projects'));
     });
   });
 });
@@ -139,7 +142,8 @@ describe('getPalettes', () => {
         ok: false
       })
     });
-    expect(getPalettes(mockProjectId)).rejects.toEqual(Error('Error: There was a problem getting the palettes for project id 3230'
+    expect(getPalettes(mockProjectId)).rejects.toEqual(Error(
+      'Error: There was a problem getting the palettes for project id 3230'
     ));
   });
 });
@@ -185,13 +189,14 @@ describe('Get a specific palette', () => {
         ok: false
       })
     });
-    expect(getSpecificPalette(mockPaletteId)).rejects.toEqual(Error('Error: There was a problem getting palette id 181'
+    expect(getSpecificPalette(mockPaletteId)).rejects.toEqual(Error(
+      'Error: There was a problem getting palette id 181'
     ));
   });
 });
 
 describe('addProject', () => {
-  let mockName = 'Sample Palette Three'
+  let mockName = 'Sample Project Three'
   let mockResponse = { id: 200 };
   const mockOptions = {
     method: 'POST',
@@ -228,7 +233,59 @@ describe('addProject', () => {
         ok: false
       })
     });
-    expect(addProject(mockName)).rejects.toEqual(Error('Error: There was a problem adding your project.'
+    expect(addProject(mockName)).rejects.toEqual(Error(
+      'Error: There was a problem adding your project.'
     ));
   });
-})
+});
+
+describe('addPalette', () => {
+  let mockProjectId = 123;
+  let mockBody = {
+    name: 'Sample Palette Fav Colors',
+    color_one: '#F7D951',
+    color_two: '#75B1FF',
+    color_three: '#985EEE',
+    color_four: '#5ED49B',
+    color_five: '#44638F' };
+  let mockResponse = { id: 500 };
+  const mockOptions = {
+    method: 'POST',
+    body: JSON.stringify(mockBody),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => {
+          return Promise.resolve(mockResponse);
+        }
+      });
+    });
+  });
+
+  it('should be passed the correct URL', () => {
+    addPalette(mockProjectId, mockBody);
+    expect(window.fetch).toHaveBeenCalledWith(
+      'https://palette-picks.herokuapp.com/api/v1/projects/123/palettes',
+        mockOptions);
+  });
+
+  it('should return an object with the project id', () => {
+    expect(addPalette(mockProjectId, mockBody)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error for a response that is not ok', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    });
+    expect(addPalette(mockProjectId, mockBody)).rejects.toEqual(
+      Error('Error: There was a problem adding your palette.'));
+  });
+});
