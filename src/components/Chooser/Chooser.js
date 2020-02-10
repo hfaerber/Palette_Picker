@@ -21,35 +21,35 @@ export const Chooser = props => {
               <div className="color-panel" style={{backgroundColor: `#${colors[0].color}`}}>
               </div>
               <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
-              <input className="color-input" value={colors[0].color}/>
+              <input className="color-input" value={colors[0].color} minlength="6" maxlength="6"/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${colors[1].color}`}}>
               </div>
               <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
-              <input className="color-input" value={colors[1].color}/>
+              <input className="color-input" value={colors[1].color} minlength="6" maxlength="6"/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${colors[2].color}`}}>
               </div>
               <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
-              <input className="color-input" value={colors[2].color}/>
+              <input className="color-input" value={colors[2].color} minlength="6" maxlength="6"/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${colors[3].color}`}}>
               </div>
               <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
-              <input className="color-input" value={colors[3].color}/>
+              <input className="color-input" value={colors[3].color} minlength="6" maxlength="6"/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${colors[4].color}`}}>
               </div>
               <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
-              <input className="color-input" value={colors[4].color}/>
+              <input className="color-input" value={colors[4].color} minlength="6" maxlength="6"/>
             </div>
 
           </div>

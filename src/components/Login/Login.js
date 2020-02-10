@@ -36,8 +36,8 @@ export const Login = props => {
       <h1>Palette Picker</h1>
       <span className="form-label">Please sign in to start pickin' palettes:</span>
       <form className="login-form" onSubmit={event => handleSubmit(event)}>
-        <input className="username" id="username" type="text" placeholder="Username..." value={username} onChange={e => handleChange(e, setError, setUsername, setPassword)}/>
-        <input className="password" id="password" type="password" placeholder="Password..." value={password} onChange={e => handleChange(e, setError, setUsername, setPassword)}/>
+        <input className="username" id="username" type="text" placeholder="Username..." value={username} onChange={e => handleChange(e, setError, setUsername, setPassword)} maxlength="32"/>
+        <input className="password" id="password" type="password" placeholder="Password..." value={password} onChange={e => handleChange(e, setError, setUsername, setPassword)} maxlength="32"/>
         <button type="submit" className="login-submit">Sign In</button>
       </form>
       <span className="login-error">{error}</span>
