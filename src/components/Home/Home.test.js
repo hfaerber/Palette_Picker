@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Home } from './Home.js';
+import { Home, handleProjectSubmit } from './Home.js';
 import { render, fireEvent } from '@testing-library/react';
 import { shallow } from 'enzyme';
+import { Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+
 
 describe('Home', () => {
   let wrapper, mockUser, mockSetUser, mockSetProjects;
@@ -25,14 +29,14 @@ describe('Home', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  // it('Should render without crashing', () => {
-  //   const div = document.createElement("div");
-  //   ReactDOM.render(<Home />, div);
-  //   ReactDOM.unmountComponentAtNode(div);
-  // });
+  it('Should render without crashing', () => {
+    const div = document.createElement("div");
+    ReactDOM.render(<Home  {...mockProps} />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 
   it('Should load with an initial project text of an empty string', () => {
-    // const { container } = render(<Home {...mockProps}/>);
+    const { container } = render(<Home {...mockProps}/>);
     const project = container.querySelector('.add-project');
     expect(project.textContent).toBe('');
   });
