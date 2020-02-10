@@ -7,11 +7,18 @@ export const Chooser = props => {
   const [colorThree, setColorThree] = useState({color: '', locked: false});
   const [colorFour, setColorFour] = useState({color: '', locked: false});
   const [colorFive, setColorFive] = useState({color: '', locked: false});
+  const [selectedProject, selectProject] = useState('');
+  const [paletteName, setPaletteName] = useState('');
   const projectOptions = props.projects.map(project => {
     return (
       <option key={project.id} id={project.id} value={project.name}>{project.name}</option>
     )
   });
+  const handleSelect = ({ target }) => {
+    const index = target.selectedIndex;
+    const id = target.options[index].id;
+    selectProject(id);
+  }
 
   return (
     <div className="chooser">
@@ -59,10 +66,10 @@ export const Chooser = props => {
           </div>
         </div>
         <div className="color-form-wrapper">
-          <select className="project-selector">
+          <select className="project-selector" onChange={e => handleSelect(e)}>
             {projectOptions}
           </select>
-          <input className="palette-name" placeholder="Name"/>
+          <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => setPaletteName(e.target.value)}/>
           <button className="add-palette">Create</button>
         </div>
       </section>
