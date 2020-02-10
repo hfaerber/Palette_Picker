@@ -20,7 +20,7 @@ export const handleProjectSubmit = async projectHooks => {
   }
 };
 
-const Home = props => {
+export const Home = props => {
   const [newProject, setNewProject] = useState('');
   const [error, setError] = useState('');
   const { user, setUser, projects, setProjects } = props;

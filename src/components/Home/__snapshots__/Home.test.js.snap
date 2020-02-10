@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Should match snapshot 1`] = `
+<div
+  className="home"
+>
+  <nav
+    className="home-nav"
+  >
+    <h2>
+      Palette Picker
+    </h2>
+    <Link
+      className="sign-out"
+      onClick={[Function]}
+      to="/"
+    >
+      Sign Out
+    </Link>
+  </nav>
+  <section
+    className="project-section"
+  >
+    <div
+      className="user-container"
+    >
+      <img
+        alt="Profile Icon"
+        className="profile-icon"
+        src={
+          Object {
+            "ReactComponent": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "__esModule": true,
+            "default": "user.svg",
+          }
+        }
+      />
+      <span
+        className="username-label"
+      >
+        Ben
+      </span>
+    </div>
+    <div
+      className="projects-container"
+    >
+      <div
+        className="projects-header"
+      >
+        <h3>
+          Your Projects:
+        </h3>
+        <span
+          className="add-project-error"
+        />
+        <div
+          className="add-project-wrapper"
+        >
+          <input
+            className="add-project"
+            onChange={[Function]}
+            placeholder="New Project"
+            type="text"
+            value=""
+          />
+          <img
+            alt="Add Icon"
+            className="add-icon"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "add-button.svg",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="small-project-wrapper"
+      >
+        <div
+          className="project-button"
+          id={1}
+          key="1"
+        >
+          <img
+            alt="Project-Icon"
+            className="project-icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "pantone.svg",
+              }
+            }
+          />
+          <span
+            className="project-name"
+          >
+            Project 1
+          </span>
+        </div>
+        <div
+          className="project-button"
+          id={2}
+          key="2"
+        >
+          <img
+            alt="Project-Icon"
+            className="project-icon"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "pantone.svg",
+              }
+            }
+          />
+          <span
+            className="project-name"
+          >
+            Project 2
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div
+    className="divider"
+  />
+</div>
+`;
