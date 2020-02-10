@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { addProject, getProjects } from '../../apiCalls.js';
+import Chooser from '../Chooser/Chooser';
 import './Home.scss';
 
 export const handleProjectSubmit = async projectHooks => {
@@ -52,7 +53,7 @@ const Home = props => {
               <input className="add-project" type="text" placeholder="New Project" onChange={e => {
                 setNewProject(e.target.value);
                 setError('');
-              }} value={newProject}/>
+              }} value={newProject} maxLength="24"/>
               <img alt="Add Icon" className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
@@ -62,6 +63,7 @@ const Home = props => {
         </div>
       </section>
       <div className="divider"></div>
+      <Chooser projects={projects}/>
     </div>
   )
 }

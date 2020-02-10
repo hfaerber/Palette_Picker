@@ -1,0 +1,109 @@
+@import '../../variables.scss';
+
+.chooser {
+  margin: {
+    bottom: 10%;
+    left: auto;
+    right: auto;
+  }
+  width: 95%;
+}
+
+h4 {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.picker-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-picker-wrapper {
+  margin-top: 5%;
+  width: 70%;
+}
+
+.randomize, .add-palette {
+  background-color: $accent-color-2;
+  border: none;
+  border-radius: 45px;
+  color: $light-text-color;
+  font-size: 1.2rem;
+  padding: 10px;
+  &:active {
+    background-color: $dark-text-color;
+  }
+}
+
+.palette-wrapper {
+  display: flex;
+  margin-top: 5%;
+}
+
+.color-panel-wrapper {
+  width: 20%;
+}
+
+.color-panel {
+  border: 2px solid $dark-text-color;
+  height: 300px;
+  width: 100%;
+}
+
+.lock {
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  margin: {
+    bottom: 15%;
+    left: auto;
+    right: auto;
+    top: 15%;
+  }
+}
+
+.color-input {
+  border: none;
+  font-size: 1.2rem;
+  padding: 5px;
+  width: 60%;
+}
+
+.color-form-wrapper {
+  width: 25%;
+}
+
+.project-selector {
+  font-size: 1.2rem;
+  margin-top: 50%;
+  width: 75%;
+}
+
+.palette-name {
+  border: none;
+  display: block;
+  font-size: 1.2rem;
+  margin: {
+    bottom: 15%;
+    left: auto;
+    right: auto;
+    top: 15%;
+  }
+  padding: 10px;
+  width: 75%;
+}
+
+.add-palette {
+  margin-bottom: 10%;
+  width: 50%;
+}
+
+.error {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: red;
+  margin: none;
+  padding: 10px;
+  width: 100%;
+}
