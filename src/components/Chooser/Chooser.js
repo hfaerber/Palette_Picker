@@ -29,6 +29,9 @@ export const Chooser = props => {
   };
 
   const handleColorChange = ({ target }) => {
+    if (checkColors() && paletteName) {
+      setError('');
+    }
     const { value, id } = target;
     const selectedColor = colors.find(color => color.number === parseInt(id));
     selectedColor.color = value;
@@ -46,6 +49,9 @@ export const Chooser = props => {
   };
 
   const randomizeColors = () => {
+    if (paletteName) {
+      setError('');
+    }
     return colors.map(colorObj => {
       let { color, number, locked } = colorObj;
       if (!locked) {
@@ -78,7 +84,7 @@ export const Chooser = props => {
   };
 
   const validateSubmit = () => {
-    if (paletteName && checkColors()) {
+    if (paletteName && checkColors() && selectedProject) {
       const body = {
         name: paletteName,
         color_one: `#${colors[0].color}`,
@@ -89,10 +95,18 @@ export const Chooser = props => {
       };
       addPalette(selectedProject, body);
       setPaletteName('');
+      setError('');
     } else {
         setError('Please fill out a name and all five colors with a valid hex code');
     }
   };
+
+  const handleNameChange = event => {
+    if (checkColors()) {
+      setError('');
+    }
+    setPaletteName(event.target.value);
+  }
 
   return (
     <div className="chooser">
@@ -144,7 +158,7 @@ export const Chooser = props => {
             <option className="default-select" value="default">Select a project:</option>
             {projectOptions}
           </select>
-          <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => setPaletteName(e.target.value)}/>
+          <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => handleNameChange(e)}/>
           <button className="add-palette" onClick={() => validateSubmit()}>Create</button>
           <span className="error">{error}</span>
         </div>
