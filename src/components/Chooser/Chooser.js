@@ -9,6 +9,11 @@ export const Chooser = props => {
     {color: 'FFFFFF', locked: false},
     {color: 'FFFFFF', locked: false}
   ]);
+  const projectOptions = props.projects.map(project => {
+    return (
+      <option id={project.id} value={project.name}>{project.name}</option>
+    )
+  });
   return (
     <div className="chooser">
       <h4>Create a palette:</h4>
@@ -55,6 +60,11 @@ export const Chooser = props => {
           </div>
         </div>
         <div className="color-form-wrapper">
+          <select className="project-selector">
+            {projectOptions}
+          </select>
+          <input className="palette-name" placeholder="Name"/>
+          <button className="add-palette">Create</button>
         </div>
       </section>
     </div>
