@@ -65,6 +65,10 @@ export const Chooser = props => {
     })
   };
 
+  const findLockImage = num => {
+    return colors.find(color => color.number === num).locked
+  };
+
   return (
     <div className="chooser">
       <h4>Create a palette:</h4>
@@ -76,35 +80,35 @@ export const Chooser = props => {
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(1)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(1))}/>
+              <img className="lock" src={!findLockImage(1) ? require('../../images/icons/open-padlock.svg') : require('../../images/icons/lock.svg')} onClick={() => setColors(toggleLock(1))}/>
               <input className="color-input" value={findColor(1)} minLength="6" maxLength="6" id="1" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(2)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(2))}/>
+              <img className="lock" src={!findLockImage(2) ? require('../../images/icons/open-padlock.svg') : require('../../images/icons/lock.svg')} onClick={() => setColors(toggleLock(2))}/>
               <input className="color-input" value={findColor(2)} minLength="6" maxLength="6" id="2" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(3)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(3))}/>
+              <img className="lock" src={!findLockImage(3) ? require('../../images/icons/open-padlock.svg') : require('../../images/icons/lock.svg')} onClick={() => setColors(toggleLock(3))}/>
               <input className="color-input" value={findColor(3)} minLength="6" maxLength="6" id="3" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(4)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(4))}/>
+              <img className="lock" src={!findLockImage(4) ? require('../../images/icons/open-padlock.svg') : require('../../images/icons/lock.svg')} onClick={() => setColors(toggleLock(4))}/>
               <input className="color-input" value={findColor(4)} minLength="6" maxLength="6" id="4" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(5)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(5))}/>
+              <img className="lock" src={!findLockImage(5) ? require('../../images/icons/open-padlock.svg') : require('../../images/icons/lock.svg')} onClick={() => setColors(toggleLock(5))}/>
               <input className="color-input" value={findColor(5)} minLength="6" maxLength="6" id="5" onChange={e => handleColorChange(e)}/>
             </div>
 
