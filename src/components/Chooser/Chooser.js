@@ -14,7 +14,7 @@ export const Chooser = props => {
 
   const [selectedProject, selectProject] = useState('');
   const [paletteName, setPaletteName] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState('none');
 
   const projectOptions = props.projects.map(project => {
     return (
@@ -30,7 +30,7 @@ export const Chooser = props => {
 
   const handleColorChange = ({ target }) => {
     if (checkColors() && paletteName) {
-      setError('');
+      setError('none');
     }
     const { value, id } = target;
     const selectedColor = colors.find(color => color.number === parseInt(id));
@@ -50,7 +50,7 @@ export const Chooser = props => {
 
   const randomizeColors = () => {
     if (paletteName) {
-      setError('');
+      setError('none');
     }
     return colors.map(colorObj => {
       let { color, number, locked } = colorObj;
@@ -95,15 +95,15 @@ export const Chooser = props => {
       };
       addPalette(selectedProject, body);
       setPaletteName('');
-      setError('');
+      setError('none');
     } else {
-        setError('Please fill out a name and all five colors with a valid hex code');
+        setError('block');
     }
   };
 
   const handleNameChange = event => {
     if (checkColors()) {
-      setError('');
+      setError('none');
     }
     setPaletteName(event.target.value);
   }
@@ -160,7 +160,7 @@ export const Chooser = props => {
           </select>
           <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => handleNameChange(e)}/>
           <button className="add-palette" onClick={() => validateSubmit()}>Create</button>
-          <span className="error">{error}</span>
+          <span className="error" style={{display: error}}>Please fill out a name and all five colors with a valid hex code</span>
         </div>
       </section>
     </div>
