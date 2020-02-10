@@ -53,7 +53,7 @@ const Home = props => {
               <input className="add-project" type="text" placeholder="New Project" onChange={e => {
                 setNewProject(e.target.value);
                 setError('');
-              }} value={newProject} maxlength="24"/>
+              }} value={newProject} maxLength="24"/>
               <img alt="Add Icon" className="add-icon" src={require("../../images/icons/add-button.svg")} onClick={() => handleProjectSubmit(addProjectHooks)}/>
             </div>
           </div>
