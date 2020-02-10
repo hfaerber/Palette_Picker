@@ -7,17 +7,24 @@ export const Chooser = props => {
   const [colorThree, setColorThree] = useState({color: '', locked: false});
   const [colorFour, setColorFour] = useState({color: '', locked: false});
   const [colorFive, setColorFive] = useState({color: '', locked: false});
+
   const [selectedProject, selectProject] = useState('');
   const [paletteName, setPaletteName] = useState('');
+
   const projectOptions = props.projects.map(project => {
     return (
       <option key={project.id} id={project.id} value={project.name}>{project.name}</option>
     )
   });
+
   const handleSelect = ({ target }) => {
     const index = target.selectedIndex;
     const id = target.options[index].id;
     selectProject(id);
+  }
+
+  const randomizeColors = () => {
+    
   }
 
   return (
