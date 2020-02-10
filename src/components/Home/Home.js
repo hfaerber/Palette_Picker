@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { addProject, getProjects } from '../../apiCalls.js';
+import Chooser from '../Chooser/Chooser';
 import './Home.scss';
 
 export const handleProjectSubmit = async projectHooks => {
@@ -62,6 +63,7 @@ const Home = props => {
         </div>
       </section>
       <div className="divider"></div>
+      <Chooser />
     </div>
   )
 }

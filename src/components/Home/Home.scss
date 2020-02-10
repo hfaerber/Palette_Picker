@@ -2,6 +2,7 @@
 
 .home {
   background: {
+    attachment: fixed;
     color: rgba(0,0,0,0.5);
     image: url('../../images/wave2.png');
     position: center;
@@ -12,6 +13,7 @@
   margin: 0;
   min-height: 100%;
   min-width: 100%;
+  overflow-x: scroll;
 }
 
 .home-nav {
@@ -152,6 +154,7 @@ h3 {
   background-color: $light-text-color;
   min-height: 5px;
   margin: {
+    bottom: 10%;
     left: auto;
     right: auto;
     top: 10%;
