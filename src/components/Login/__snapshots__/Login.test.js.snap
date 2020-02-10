@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Login Should match snapshot 1`] = `
+<div
+  className="login"
+>
+  <h1>
+    Palette Picker
+  </h1>
+  <span
+    className="form-label"
+  >
+    Please sign in to start pickin' palettes:
+  </span>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="username"
+      id="username"
+      onChange={[Function]}
+      placeholder="Username..."
+      type="text"
+      value=""
+    />
+    <input
+      className="password"
+      id="password"
+      onChange={[Function]}
+      placeholder="Password..."
+      type="password"
+      value=""
+    />
+    <button
+      className="login-submit"
+      type="submit"
+    >
+      Sign In
+    </button>
+  </form>
+  <span
+    className="login-error"
+  />
+</div>
+`;
