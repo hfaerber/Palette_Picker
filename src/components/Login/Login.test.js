@@ -16,12 +16,13 @@ describe('Login', () => {
     />);
     expect(wrapper).toMatchSnapshot();
   })
-
+  
   it('Should render without crashing', () => {
     const div = document.createElement("div");
     ReactDOM.render(<Login />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+
   it('Should load with initial username of an empty string', () => {
     const { container } = render(<Login />);
     const username = container.querySelector('#username');
