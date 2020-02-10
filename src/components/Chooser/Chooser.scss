@@ -70,9 +70,13 @@ h4 {
   width: 60%;
 }
 
+.color-form-wrapper {
+  width: 25%;
+}
+
 .project-selector {
   font-size: 1.2rem;
-  margin-top: 68%;
+  margin-top: 50%;
   width: 75%;
 }
 
@@ -91,5 +95,16 @@ h4 {
 }
 
 .add-palette {
+  margin-bottom: 10%;
   width: 50%;
+}
+
+.error {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: red;
+  display: block;
+  margin: none;
+  padding: 10px;
+  width: 100%;
 }
