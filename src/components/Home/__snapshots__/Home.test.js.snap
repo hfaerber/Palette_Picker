@@ -10,13 +10,15 @@ exports[`Home Should match snapshot 1`] = `
     <h2>
       Palette Picker
     </h2>
-    <Link
-      className="sign-out"
-      onClick={[Function]}
-      to="/"
-    >
-      Sign Out
-    </Link>
+    <BrowserRouter>
+      <Link
+        className="sign-out"
+        onClick={[Function]}
+        to="/"
+      >
+        Sign Out
+      </Link>
+    </BrowserRouter>
   </nav>
   <section
     className="project-section"

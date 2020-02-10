@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { addProject, getProjects } from '../../apiCalls.js';
 import Chooser from '../Chooser/Chooser';
 import './Home.scss';
+import { BrowserRouter } from 'react-router-dom';
+
 
 export const handleProjectSubmit = async projectHooks => {
   if (projectHooks.newProject) {
@@ -28,7 +30,8 @@ export const Home = props => {
   const projectNodes = projects.map(project => {
     return (
       <div className="project-button" key={project.id} id={project.id}>
-        <img className="project-icon" src={require("../../images/icons/pantone.svg")} alt="Project-Icon"/>
+        <img className="project-icon"
+          src={require("../../images/icons/pantone.svg")} alt="Project-Icon"/>
         <span className="project-name">{project.name}</span>
       </div>
     )
@@ -38,11 +41,14 @@ export const Home = props => {
     <div className="home">
       <nav className="home-nav">
         <h2>Palette Picker</h2>
+        <BrowserRouter>
         <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
+        </BrowserRouter>
       </nav>
       <section className="project-section">
         <div className="user-container">
-          <img alt="Profile Icon" className="profile-icon" src={require("../../images/icons/user.svg")}/>
+          <img alt="Profile Icon" className="profile-icon"
+            src={require("../../images/icons/user.svg")}/>
           <span className="username-label">{user}</span>
         </div>
         <div className="projects-container">
@@ -50,7 +56,8 @@ export const Home = props => {
             <h3>Your Projects:</h3>
             <span className="add-project-error">{error}</span>
             <div className="add-project-wrapper">
-              <input className="add-project" type="text" placeholder="New Project" onChange={e => {
+              <input className="add-project" type="text"
+                placeholder="New Project" onChange={e => {
                 setNewProject(e.target.value);
                 setError('');
               }} value={newProject} maxLength="24"/>
