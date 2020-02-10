@@ -63,7 +63,7 @@ const Home = props => {
         </div>
       </section>
       <div className="divider"></div>
-      <Chooser />
+      <Chooser projects={projects}/>
     </div>
   )
 }
