@@ -71,13 +71,20 @@ export const Chooser = props => {
 
   const checkColors = () => {
     const hexRegex = /[0-9a-zA-Z]{6,}/;
-    let passingColors = colors.filter(color => regex5.test(color.color));
+    let passingColors = colors.filter(color => hexRegex.test(color.color));
     return passingColors.length === 5 ? true : false
   };
 
   const validateSubmit = () => {
-    console.log(checkColors());
     if (paletteName && checkColors()) {
+      const body = {
+        name: paletteName,
+        color_one: `#${colors[0].color}`,
+        color_two: `#${colors[1].color}`,
+        color_three: `#${colors[2].color}`,
+        color_four: `#${colors[3].color}`,
+        color_five: `#${colors[4].color}`
+      };
       console.log(true);
     } else {
       console.log(false);
