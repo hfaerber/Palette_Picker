@@ -48,6 +48,19 @@ export const Chooser = props => {
       let { color, number, locked } = colorObj;
       if (!locked) {
         return {number, color: generateRandomHex(), locked}
+      } else {
+        return colorObj
+      }
+    })
+  };
+
+  const toggleLock = num => {
+    return colors.map(colorObj => {
+      let { color, number, locked } = colorObj;
+      if (number === num) {
+        return {number, color, locked: !locked}
+      } else {
+        return colorObj
       }
     })
   };
@@ -63,35 +76,35 @@ export const Chooser = props => {
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(1)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
+              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(1))}/>
               <input className="color-input" value={findColor(1)} minLength="6" maxLength="6" id="1" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(2)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
+              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(2))}/>
               <input className="color-input" value={findColor(2)} minLength="6" maxLength="6" id="2" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(3)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
+              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(3))}/>
               <input className="color-input" value={findColor(3)} minLength="6" maxLength="6" id="3" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(4)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
+              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(4))}/>
               <input className="color-input" value={findColor(4)} minLength="6" maxLength="6" id="4" onChange={e => handleColorChange(e)}/>
             </div>
 
             <div className="color-panel-wrapper">
               <div className="color-panel" style={{backgroundColor: `#${findColor(5)}`}}>
               </div>
-              <img className="lock" src={require('../../images/icons/open-padlock.svg')}/>
+              <img className="lock" src={require('../../images/icons/open-padlock.svg')} onClick={() => setColors(toggleLock(5))}/>
               <input className="color-input" value={findColor(5)} minLength="6" maxLength="6" id="5" onChange={e => handleColorChange(e)}/>
             </div>
 
