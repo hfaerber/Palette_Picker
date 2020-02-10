@@ -38,8 +38,18 @@ export const Chooser = props => {
     return colors.find(color => color.number === number).color;
   };
 
-  const randomizeColors = () => {
+  const generateRandomHex = () => {
+    const randomHex = Math.floor(Math.random()*16777215).toString(16);
+    return randomHex
+  };
 
+  const randomizeColors = () => {
+    return colors.map(colorObj => {
+      let { color, number, locked } = colorObj;
+      if (!locked) {
+        return {number, color: generateRandomHex(), locked}
+      }
+    })
   };
 
   return (
@@ -47,7 +57,7 @@ export const Chooser = props => {
       <h4>Create a palette:</h4>
       <section className="picker-wrapper">
         <div className="color-picker-wrapper">
-          <button className="randomize">Randomize</button>
+          <button className="randomize" onClick={() => setColors(randomizeColors())}>Randomize</button>
           <div className="palette-wrapper">
 
             <div className="color-panel-wrapper">
