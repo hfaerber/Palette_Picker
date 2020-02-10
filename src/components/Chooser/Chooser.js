@@ -11,7 +11,7 @@ export const Chooser = props => {
     {number: 5, color: '', locked: false}
   ]);
 
-  const [selectedProject, selectProject] = useState('1');
+  const [selectedProject, selectProject] = useState('');
   const [paletteName, setPaletteName] = useState('');
 
   const projectOptions = props.projects.map(project => {
@@ -69,6 +69,21 @@ export const Chooser = props => {
     return colors.find(color => color.number === num).locked
   };
 
+  const checkColors = () => {
+    const hexRegex = /[0-9a-zA-Z]{6,}/;
+    let passingColors = colors.filter(color => regex5.test(color.color));
+    return passingColors.length === 5 ? true : false
+  };
+
+  const validateSubmit = () => {
+    console.log(checkColors());
+    if (paletteName && checkColors()) {
+      console.log(true);
+    } else {
+      console.log(false);
+    }
+  };
+
   return (
     <div className="chooser">
       <h4>Create a palette:</h4>
@@ -116,10 +131,11 @@ export const Chooser = props => {
         </div>
         <div className="color-form-wrapper">
           <select className="project-selector" onChange={e => handleSelect(e)}>
+            <option className="default-select" value="default">Select a project:</option>
             {projectOptions}
           </select>
           <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => setPaletteName(e.target.value)}/>
-          <button className="add-palette">Create</button>
+          <button className="add-palette" onClick={() => validateSubmit()}>Create</button>
         </div>
       </section>
     </div>
