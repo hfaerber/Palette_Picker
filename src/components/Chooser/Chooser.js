@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { addPalette } from '../../apiCalls';
 import './Chooser.scss';
 
 export const Chooser = props => {
@@ -13,6 +14,7 @@ export const Chooser = props => {
 
   const [selectedProject, selectProject] = useState('');
   const [paletteName, setPaletteName] = useState('');
+  const [error, setError] = useState('');
 
   const projectOptions = props.projects.map(project => {
     return (
@@ -85,9 +87,10 @@ export const Chooser = props => {
         color_four: `#${colors[3].color}`,
         color_five: `#${colors[4].color}`
       };
-      console.log(true);
+      addPalette(selectedProject, body);
+      setPaletteName('');
     } else {
-      console.log(false);
+        setError('Please fill out a name and all five colors with a valid hex code');
     }
   };
 
@@ -143,6 +146,7 @@ export const Chooser = props => {
           </select>
           <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => setPaletteName(e.target.value)}/>
           <button className="add-palette" onClick={() => validateSubmit()}>Create</button>
+          <span className="error">{error}</span>
         </div>
       </section>
     </div>
