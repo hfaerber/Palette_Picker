@@ -29,7 +29,8 @@ export const Home = props => {
   const addProjectHooks = {newProject, setNewProject, projects, setProjects, setError};
   const projectNodes = projects.map(project => {
     return (
-      <div className="project-button" key={project.id} id={project.id}>
+      <div className="project-button" key={project.id} id={project.id}
+        onClick={() => props.history.push(`/projects/${project.id}`)}>
         <img className="project-icon"
           src={require("../../images/icons/pantone.svg")} alt="Project-Icon"/>
         <span className="project-name">{project.name}</span>
