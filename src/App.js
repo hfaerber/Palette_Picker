@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import Loader from './components/Loader/Loader';
+import Project from './components/Project/Project';
 import { getProjects } from './apiCalls.js';
 import './App.scss';
 
@@ -27,6 +28,7 @@ const App = () => {
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
       <Route exact path='/home' render={() => projects.length ? <Home {...homeProps}/> : <Loader />} />
+      <Route path='/projects/:id' render={() => <Project />} />
     </div>
   )
 }

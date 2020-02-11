@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+.back-button {
+  color: $light-text-color;
+  font-size: 1.2rem;
+  margin: {
+    bottom: auto;
+    top: auto;
+  }
+  &:hover {
+    color: $medium-text-color;
+    text-decoration: none;
+  }
+}
