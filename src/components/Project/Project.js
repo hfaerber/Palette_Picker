@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-
 import { getPalettes } from '../../apiCalls';
 import './Project.scss';
 
 export const Project = props => {
   const { id, user, setUser, projects, setProjects } = props;
-  const [palettes, setPalettes] = useState('');
-  let palettesToDisplay;
+  const [palettes, setPalettes] = useState([]);
 
   useEffect(() => {
     const fetchPalettes = async () => {
       try {
         const response = await getPalettes(id);
-        await setPalettes(response.palettes);
-        formatPalettes();
+        setPalettes(response.palettes);
       } catch(error) {
           console.log(error);
       }
@@ -23,41 +20,22 @@ export const Project = props => {
     fetchPalettes();
   }, []);
 
-  const formatPalettes = () => {
-    console.log('palettes', palettes)
-    palettes.map(palette => {
-      console.log('palette.name');
-    })
-  };
-  // fetch palettes for selected project
-  // map over them and return
-
-  const htmlForPalette =
-    <section className='proj-palette'>
-      <h3 className='proj-palette-name'>Nature</h3>
-      <div className='color-box-container'>
-        <div className='color_box'></div>
-        <div className='color_box'></div>
-        <div className='color_box'></div>
-        <div className='color_box'></div>
-        <div className='color_box'></div>
-      </div>
-      <button className='trash-button'>🗑</button>
-    </section>;
-
-    // return (
-    //   <section className='proj-palette'>
-    //   <h3 className='proj-palette-name'>{palette.name}</h3>
-    //   <div className='color-box-container'>
-    //     <div className='color_box' style={{backgroundColor: palette.color_one}}></div>
-    //     <div className='color_box' style={{backgroundColor: palette.color_two}}></div>
-    //     <div className='color_box' style={{backgroundColor: palette.color_three}}></div>
-    //     <div className='color_box' style={{backgroundColor: palette.color_four}}></div>
-    //     <div className='color_box' style={{backgroundColor: palette.color_five}}></div>
-    //   </div>
-    //   <button className='trash-button'>🗑</button>
-    // </section>
-    // )
+  const formatPalettes = palettes.map(pal => {
+      console.log('palette.name', pal.name);
+      return (
+          <section className='proj-palette'>
+            <h3 className='proj-palette-name'>{pal.name}</h3>
+            <div className='color-box-container'>
+              <div className='color_box' style={{backgroundColor: pal.color_one}}></div>
+              <div className='color_box' style={{backgroundColor: pal.color_two}}></div>
+              <div className='color_box' style={{backgroundColor: pal.color_three}}></div>
+              <div className='color_box' style={{backgroundColor: pal.color_four}}></div>
+              <div className='color_box' style={{backgroundColor: pal.color_five}}></div>
+            </div>
+            <button className='trash-button'>🗑</button>
+          </section>
+        )
+      });
 
   return (
     <div className='project-page'>
@@ -73,28 +51,7 @@ export const Project = props => {
         <button className='delete-project-button'>Delete Project</button>
       </div>
       <div className='palettes-container'>
-        <section className='proj-palette'>
-          <h3 className='proj-palette-name'>Nature</h3>
-          <div className='color-box-container'>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-          </div>
-          <button className='trash-button'>🗑</button>
-        </section>
-        <section className='proj-palette'>
-          <h3 className='proj-palette-name'>Nature</h3>
-          <div className='color-box-container'>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-            <div className='color_box'></div>
-          </div>
-          <button className='trash-button'>🗑</button>
-        </section>
+        {palettes.length ? formatPalettes : 'Loading'}
       </div>
     </div>
   )
