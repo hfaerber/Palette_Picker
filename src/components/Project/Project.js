@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 import { getPalettes, removeItem } from '../../apiCalls';
 import './Project.scss';
 
 export const handleDelete = async (id, item, hooks) => {
   const response = await removeItem(id, item);
-  const updatedPalettes = hooks.palettes.filter(palette => palette.id !== id);
-  hooks.setPalettes(updatedPalettes);
+  if (item === 'palette') {
+    const updatedPalettes = hooks.palettes.filter(palette => palette.id !== id);
+    hooks.setPalettes(updatedPalettes);
+  } else {
+    console.log('deleted!')
+    props.history.push('/home');
+  }
 }
 
 export const Project = props => {
@@ -28,7 +35,6 @@ export const Project = props => {
   }, []);
 
   const formatPalettes = palettes.map(pal => {
-      console.log('palette.name', pal.name);
       return (
           <section className='proj-palette' key={pal.id} id={pal.id}>
             <h3 className='proj-palette-name'>{pal.name}</h3>
@@ -57,7 +63,9 @@ export const Project = props => {
       </nav>
       <div className='project-div'>
         <h2>Project {id}</h2>
-        <button className='delete-project-button'>Delete Project</button>
+        <button className='delete-project-button'
+          onClick={() => handleDelete(id, 'project', removeItemHooks)}>
+          Delete Project</button>
       </div>
       <div className='palettes-container'>
         {palettes.length ? formatPalettes : 'Loading'}
@@ -66,4 +74,4 @@ export const Project = props => {
   )
 }
 
-export default Project;
+export default withRouter(Project);
