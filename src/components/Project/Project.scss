@@ -5,7 +5,7 @@
   background: {
     attachment: fixed;
     color: rgba(0,0,0,0.5);
-    image: url('../../images/wave2.png');
+    image: url('../../images/wave3.png');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -37,6 +37,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
+  margin-bottom: 3%;
 }
 
 .proj-palette-name {
@@ -44,8 +45,20 @@
   font-size: 2em;
 }
 
-.trash-button {
-  font-size: 2em;
+.trash-icon {
+  height: 45px;
+  background: white;
+  color: white;
+  fill: white;
+  cursor:  pointer;
+  // background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255,255, 0) 100%);
+
+  &:active {
+    // background: rgb(255,255,255);
+
+    // background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255,255, 0) 100%);
+    // border-radius: 50%;
+  }
 }
 
 .back-button {
