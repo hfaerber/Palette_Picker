@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
-      <Route exact path='/home' render={() => projects ? <Home {...homeProps}/> : <Loader />} />
+      <Route exact path='/home' render={() => projects.length ? <Home {...homeProps}/> : <Loader />} />
     </div>
   )
 }
