@@ -12,15 +12,17 @@ export const handleDelete = async (id, item, hooks) => {
     const updatedPalettes = hooks.palettes.filter(palette => palette.id !== id);
     hooks.setPalettes(updatedPalettes);
   } else {
-    console.log('deleted!')
-    props.history.push('/home');
+    hooks.tryHistoryPush();
   }
 }
 
 export const Project = props => {
   const { id, user, setUser, projects, setProjects } = props;
   const [palettes, setPalettes] = useState([]);
-  const removeItemHooks = {palettes, setPalettes, projects, setProjects}
+  const tryHistoryPush = () => {props.history.push('/home')};
+  const removeItemHooks = {palettes, setPalettes, projects, setProjects, tryHistoryPush}
+
+
 
   useEffect(() => {
     const fetchPalettes = async () => {
