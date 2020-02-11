@@ -1,5 +1,53 @@
 @import '../../variables.scss';
 
+.project-page {
+  padding: 4%;
+  background: {
+    attachment: fixed;
+    color: rgba(0,0,0,0.5);
+    image: url('../../images/wave2.png');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  background-blend-mode: darken;
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  overflow-x: scroll;
+}
+
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+
+.palettes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.proj-palette {
+  background-color: black;
+  display: flex;
+  width: 48%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.proj-palette-name {
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.trash-button {
+  font-size: 2em;
+}
+
 .back-button {
   color: $light-text-color;
   font-size: 1.2rem;
@@ -11,4 +59,32 @@
     color: $medium-text-color;
     text-decoration: none;
   }
+}
+
+.project-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10% 0%;
+}
+
+.delete-project-button {
+  background-color: red;
+  font-size: 1.2em;
+  color: white;
+  padding: 0.5% 2%;
+  border-radius: 15px;
+}
+
+.color-box-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.color_box {
+  background-color: rebeccapurple;
+  width: 45px;
+  height: 45px;
+  margin: 5px;
 }
