@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { getPalettes } from '../../apiCalls';
+import { getPalettes, removeItem } from '../../apiCalls';
 import './Project.scss';
+
+export const handleDelete = async (id, item, hooks) => {
+  const response = await removeItem(id, item);
+  const updatedPalettes = hooks.palettes.filter(palette => palette.id !== id);
+  hooks.setPalettes(updatedPalettes);
+}
 
 export const Project = props => {
   const { id, user, setUser, projects, setProjects } = props;
   const [palettes, setPalettes] = useState([]);
+  const removeItemHooks = {palettes, setPalettes, projects, setProjects}
 
   useEffect(() => {
     const fetchPalettes = async () => {
@@ -23,7 +30,7 @@ export const Project = props => {
   const formatPalettes = palettes.map(pal => {
       console.log('palette.name', pal.name);
       return (
-          <section className='proj-palette'>
+          <section className='proj-palette' key={pal.id} id={pal.id}>
             <h3 className='proj-palette-name'>{pal.name}</h3>
             <div className='color-box-container'>
               <div className='color_box' style={{backgroundColor: pal.color_one}}></div>
@@ -32,7 +39,9 @@ export const Project = props => {
               <div className='color_box' style={{backgroundColor: pal.color_four}}></div>
               <div className='color_box' style={{backgroundColor: pal.color_five}}></div>
             </div>
-            <button className='trash-button'>🗑</button>
+            <img alt="Trash Icon" className="trash-icon"
+              src={require("../../images/icons/delete.svg")}
+              onClick={() => handleDelete(pal.id, 'palette', removeItemHooks)}/>
           </section>
         )
       });
@@ -47,7 +56,7 @@ export const Project = props => {
         </BrowserRouter>
       </nav>
       <div className='project-div'>
-        <h2>Project 1</h2>
+        <h2>Project {id}</h2>
         <button className='delete-project-button'>Delete Project</button>
       </div>
       <div className='palettes-container'>
