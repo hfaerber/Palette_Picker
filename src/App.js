@@ -28,7 +28,9 @@ const App = () => {
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
       <Route exact path='/home' render={() => projects.length ? <Home {...homeProps}/> : <Loader />} />
-      <Route path='/projects/:id' render={() => <Project />} />
+      <Route path='/projects/:id' render={({ match }) => {
+              const { id } = match.params;
+              return <Project id={id} {...homeProps} /> }} />
     </div>
   )
 }
