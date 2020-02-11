@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
+import Loader from './components/Loader/Loader';
 import { getProjects } from './apiCalls.js';
 import './App.scss';
 
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() => <Login setUser={setUser}/>} />
-      <Route exact path='/home' render={() => <Home {...homeProps}/>} />
+      <Route exact path='/home' render={() => projects.length ? <Home {...homeProps}/> : <Loader />} />
     </div>
   )
 }
