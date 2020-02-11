@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { addProject, getProjects } from '../../apiCalls.js';
 import Chooser from '../Chooser/Chooser';
 import './Home.scss';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, withRouter } from 'react-router-dom';
 
 
 export const handleProjectSubmit = async projectHooks => {
@@ -75,4 +75,4 @@ export const Home = props => {
   )
 }
 
-export default Home;
+export default withRouter(Home);
