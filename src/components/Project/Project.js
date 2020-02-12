@@ -12,12 +12,15 @@ export const handleDelete = async (id, item, hooks) => {
     const updatedPalettes = hooks.palettes.filter(palette => palette.id !== id);
     hooks.setPalettes(updatedPalettes);
   } else {
+    const updatedProjects = hooks.projects.filter(project => Number(project.id) !== Number(id));
+    hooks.setProjects(updatedProjects);
     hooks.tryHistoryPush();
   }
 }
 
 export const Project = props => {
   const { id, user, setUser, projects, setProjects } = props;
+  const project = projects.find(project => project.id === Number(id));
   const [palettes, setPalettes] = useState([]);
   const tryHistoryPush = () => {props.history.push('/home')};
   const removeItemHooks = {palettes, setPalettes, projects, setProjects, tryHistoryPush}
@@ -65,7 +68,7 @@ export const Project = props => {
         </div>
       </nav>
       <div className='project-div'>
-        <h2>Project {id}</h2>
+        <h2>{project && project.name}</h2>
         <button className='delete-project-button'
           onClick={() => handleDelete(id, 'project', removeItemHooks)}>
           Delete Project</button>
