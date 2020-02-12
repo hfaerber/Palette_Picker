@@ -64,7 +64,7 @@ export const Project = props => {
             src={require("../../images/icons/down-arrow.svg")}/></Link>
           <Link className="back-button" to="/home">
           Back </Link>
-          <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
+          <Link className="sign-out" to="/" onClick={() => setUser('')}>Sign Out</Link>
         </div>
       </nav>
       <div className='project-div'>
@@ -75,7 +75,7 @@ export const Project = props => {
       </div>
       {!palettes.length && <h3>No palettes yet!</h3>}
       <div className='palettes-container'>
-        {palettes.length && formatPalettes}
+        {palettes.length > 0 && formatPalettes}
       </div>
     </div>
   )
