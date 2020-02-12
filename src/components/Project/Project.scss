@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .project-page {
-  padding: 4%;
+  padding: 0% 3%;
   background: {
     attachment: fixed;
     color: rgba(0,0,0,0.5);
@@ -23,6 +23,12 @@
   padding-top: 20px;
 }
 
+.nav-buttons {
+  display: flex;
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .palettes-container {
   display: flex;
@@ -47,18 +53,19 @@
 
 .trash-icon {
   height: 45px;
-  background: white;
-  color: white;
-  fill: white;
   cursor:  pointer;
-  // background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255,255, 0) 100%);
-
-  &:active {
-    // background: rgb(255,255,255);
-
-    // background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255,255, 0) 100%);
-    // border-radius: 50%;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
   }
+}
+
+.back-arrow-icon {
+  transform: rotate(90deg);
+  height: 27px;
+  cursor: pointer;
+  margin-right: -26px;
+  color: $light-text-color;
 }
 
 .back-button {
@@ -82,11 +89,16 @@
 }
 
 .delete-project-button {
-  background-color: red;
+  background-color: #a63232;
+  border: none;
   font-size: 1.2em;
   color: white;
   padding: 0.5% 2%;
   border-radius: 15px;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 }
 
 .color-box-container {
