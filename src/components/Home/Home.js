@@ -42,9 +42,7 @@ export const Home = props => {
     <div className="home">
       <nav className="home-nav">
         <h2>Palette Picker</h2>
-        <BrowserRouter>
-        <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
-        </BrowserRouter>
+        <Link className="sign-out" to="/" onClick={() => setUser('')}>Sign Out</Link>
       </nav>
       <section className="project-section">
         <div className="user-container">
