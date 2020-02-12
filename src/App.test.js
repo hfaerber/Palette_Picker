@@ -2,9 +2,8 @@ import React from 'react';
 import App from './App';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-// import { Route } from 'react-router-dom';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
@@ -14,6 +13,7 @@ describe('App', () => {
     wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
   });
+
   it('Should render without crashing', () => {
     const div = document.createElement("div");
     ReactDOM.render(
@@ -23,4 +23,5 @@ describe('App', () => {
     , div);
     ReactDOM.unmountComponentAtNode(div);
   });
+
 });
