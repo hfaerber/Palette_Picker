@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chooser Should match the snapshot 1`] = `
+<div
+  className="chooser"
+>
+  <h4>
+    Create a palette:
+  </h4>
+  <section
+    className="picker-wrapper"
+  >
+    <div
+      className="color-picker-wrapper"
+    >
+      <button
+        className="randomize"
+        onClick={[Function]}
+      >
+        Randomize
+      </button>
+      <div
+        className="palette-wrapper"
+      >
+        <div
+          className="color-panel-wrapper"
+        >
+          <div
+            className="color-panel"
+            style={
+              Object {
+                "backgroundColor": "#",
+              }
+            }
+          />
+          <img
+            className="lock"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "open-padlock.svg",
+              }
+            }
+          />
+          <input
+            className="color-input"
+            id="1"
+            maxLength="6"
+            minLength="6"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="color-panel-wrapper"
+        >
+          <div
+            className="color-panel"
+            style={
+              Object {
+                "backgroundColor": "#",
+              }
+            }
+          />
+          <img
+            className="lock"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "open-padlock.svg",
+              }
+            }
+          />
+          <input
+            className="color-input"
+            id="2"
+            maxLength="6"
+            minLength="6"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="color-panel-wrapper"
+        >
+          <div
+            className="color-panel"
+            style={
+              Object {
+                "backgroundColor": "#",
+              }
+            }
+          />
+          <img
+            className="lock"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "open-padlock.svg",
+              }
+            }
+          />
+          <input
+            className="color-input"
+            id="3"
+            maxLength="6"
+            minLength="6"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="color-panel-wrapper"
+        >
+          <div
+            className="color-panel"
+            style={
+              Object {
+                "backgroundColor": "#",
+              }
+            }
+          />
+          <img
+            className="lock"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "open-padlock.svg",
+              }
+            }
+          />
+          <input
+            className="color-input"
+            id="4"
+            maxLength="6"
+            minLength="6"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="color-panel-wrapper"
+        >
+          <div
+            className="color-panel"
+            style={
+              Object {
+                "backgroundColor": "#",
+              }
+            }
+          />
+          <img
+            className="lock"
+            onClick={[Function]}
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "open-padlock.svg",
+              }
+            }
+          />
+          <input
+            className="color-input"
+            id="5"
+            maxLength="6"
+            minLength="6"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="color-form-wrapper"
+    >
+      <select
+        className="project-selector"
+        onChange={[Function]}
+      >
+        <option
+          className="default-select"
+          value="default"
+        >
+          Select a project:
+        </option>
+        <option
+          id={1}
+          key="1"
+          value="test1"
+        >
+          test1
+        </option>
+        <option
+          id={2}
+          key="2"
+          value="test2"
+        >
+          test2
+        </option>
+      </select>
+      <input
+        className="palette-name"
+        onChange={[Function]}
+        placeholder="Name"
+        value=""
+      />
+      <button
+        className="add-palette"
+        onClick={[Function]}
+      >
+        Create
+      </button>
+      <span
+        className="error"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        Please fill out a name and all five colors with a valid hex code
+      </span>
+    </div>
+  </section>
+</div>
+`;
