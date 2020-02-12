@@ -19,6 +19,7 @@ exports[`Login Should match snapshot 1`] = `
     <input
       className="username"
       id="username"
+      maxLength="32"
       onChange={[Function]}
       placeholder="Username..."
       type="text"
@@ -27,6 +28,7 @@ exports[`Login Should match snapshot 1`] = `
     <input
       className="password"
       id="password"
+      maxLength="32"
       onChange={[Function]}
       placeholder="Password..."
       type="password"

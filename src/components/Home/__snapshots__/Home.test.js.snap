@@ -63,6 +63,7 @@ exports[`Home Should match snapshot 1`] = `
         >
           <input
             className="add-project"
+            maxLength="24"
             onChange={[Function]}
             placeholder="New Project"
             type="text"
@@ -143,6 +144,20 @@ exports[`Home Should match snapshot 1`] = `
   </section>
   <div
     className="divider"
+  />
+  <Chooser
+    projects={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Project 1",
+        },
+        Object {
+          "id": 2,
+          "name": "Project 2",
+        },
+      ]
+    }
   />
 </div>
 `;
