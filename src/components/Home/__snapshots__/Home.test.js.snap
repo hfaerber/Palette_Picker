@@ -10,15 +10,13 @@ exports[`Home Should match snapshot 1`] = `
     <h2>
       Palette Picker
     </h2>
-    <BrowserRouter>
-      <Link
-        className="sign-out"
-        onClick={[Function]}
-        to="/"
-      >
-        Sign Out
-      </Link>
-    </BrowserRouter>
+    <Link
+      className="sign-out"
+      onClick={[Function]}
+      to="/"
+    >
+      Sign Out
+    </Link>
   </nav>
   <section
     className="project-section"
@@ -93,6 +91,7 @@ exports[`Home Should match snapshot 1`] = `
           className="project-button"
           id={1}
           key="1"
+          onClick={[Function]}
         >
           <img
             alt="Project-Icon"
@@ -118,6 +117,7 @@ exports[`Home Should match snapshot 1`] = `
           className="project-button"
           id={2}
           key="2"
+          onClick={[Function]}
         >
           <img
             alt="Project-Icon"
