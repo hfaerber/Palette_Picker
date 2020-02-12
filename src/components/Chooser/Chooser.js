@@ -78,7 +78,7 @@ export const Chooser = props => {
   };
 
   const checkColors = () => {
-    const hexRegex = /[0-9a-zA-Z]{6,}/;
+    const hexRegex = /[0-9a-zA-Z]{3,}/;
     let passingColors = colors.filter(color => hexRegex.test(color.color));
     return passingColors.length === 5 ? true : false
   };
