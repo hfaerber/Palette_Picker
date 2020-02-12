@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-
 import { getPalettes, removeItem } from '../../apiCalls';
 import './Project.scss';
 
@@ -73,8 +72,9 @@ export const Project = props => {
           onClick={() => handleDelete(id, 'project', removeItemHooks)}>
           Delete Project</button>
       </div>
+      {!palettes.length && <h3>No palettes yet!</h3>}
       <div className='palettes-container'>
-        {palettes.length ? formatPalettes : 'Loading'}
+        {palettes.length && formatPalettes}
       </div>
     </div>
   )
