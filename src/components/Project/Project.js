@@ -59,8 +59,9 @@ export const Project = props => {
       <nav className="project-nav">
         <h2>Palette Picker</h2>
         <div className='nav-buttons'>
+        <Link className="back-arrow" to="/home">
           <img alt="Back Arrow Icon" className="back-arrow-icon"
-            src={require("../../images/icons/down-arrow.svg")}/>
+            src={require("../../images/icons/down-arrow.svg")}/></Link>
           <Link className="back-button" to="/home">
           Back </Link>
           <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
