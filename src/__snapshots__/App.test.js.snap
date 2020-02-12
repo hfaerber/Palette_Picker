@@ -14,5 +14,9 @@ exports[`App Should match the snapshot 1`] = `
     path="/home"
     render={[Function]}
   />
+  <Route
+    path="/projects/:id"
+    render={[Function]}
+  />
 </div>
 `;

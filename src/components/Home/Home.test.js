@@ -31,12 +31,20 @@ describe('Home', () => {
 
   it('Should render without crashing', () => {
     const div = document.createElement("div");
-    ReactDOM.render(<Home  {...mockProps} />, div);
+    ReactDOM.render(
+      <BrowserRouter>
+        <Home  {...mockProps} />
+      </BrowserRouter>
+    , div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('Should load with an initial project text of an empty string', () => {
-    const { container } = render(<Home {...mockProps}/>);
+    const { container } = render(
+      <BrowserRouter>
+        <Home {...mockProps}/>
+      </BrowserRouter>
+    );
     const project = container.querySelector('.add-project');
     expect(project.textContent).toBe('');
   });

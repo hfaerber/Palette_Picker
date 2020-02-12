@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project Should match snapshot when no palettes exist for a project 1`] = `
+<div
+  className="project-page"
+>
+  <nav
+    className="project-nav"
+  >
+    <h2>
+      Palette Picker
+    </h2>
+    <div
+      className="nav-buttons"
+    >
+      <Link
+        className="back-arrow"
+        to="/home"
+      >
+        <img
+          alt="Back Arrow Icon"
+          className="back-arrow-icon"
+          src={
+            Object {
+              "ReactComponent": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "render": [Function],
+              },
+              "__esModule": true,
+              "default": "down-arrow.svg",
+            }
+          }
+        />
+      </Link>
+      <Link
+        className="back-button"
+        to="/home"
+      >
+        Back 
+      </Link>
+      <Link
+        className="sign-out"
+        onClick={[Function]}
+        to="/"
+      >
+        Sign Out
+      </Link>
+    </div>
+  </nav>
+  <div
+    className="project-div"
+  >
+    <h2 />
+    <button
+      className="delete-project-button"
+      onClick={[Function]}
+    >
+      Delete Project
+    </button>
+  </div>
+  <h3>
+    No palettes yet!
+  </h3>
+  <div
+    className="palettes-container"
+  />
+</div>
+`;
