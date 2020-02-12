@@ -43,4 +43,11 @@ describe('Chooser', () => {
     expect(error.prop('style').display).toBe('none');
   });
 
+  it.skip('Should show the error if the submit button is clicked with missing values', () => {
+    const button = wrapper.find('.add-palette');
+    const error = wrapper.find('.error');
+    button.simulate('click');
+    expect(error.prop('style').display).toBe('block');
+  });
+
 });
