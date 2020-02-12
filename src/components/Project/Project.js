@@ -59,11 +59,9 @@ export const Project = props => {
         <div className='nav-buttons'>
           <img alt="Back Arrow Icon" className="back-arrow-icon"
             src={require("../../images/icons/down-arrow.svg")}/>
-          <BrowserRouter>
-          <Link className="back-button" to="/">
+          <Link className="back-button" to="/home">
           Back </Link>
           <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
-          </BrowserRouter>
         </div>
       </nav>
       <div className='project-div'>
