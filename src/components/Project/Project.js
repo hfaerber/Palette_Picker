@@ -22,8 +22,6 @@ export const Project = props => {
   const tryHistoryPush = () => {props.history.push('/home')};
   const removeItemHooks = {palettes, setPalettes, projects, setProjects, tryHistoryPush}
 
-
-
   useEffect(() => {
     const fetchPalettes = async () => {
       try {
@@ -58,10 +56,15 @@ export const Project = props => {
     <div className='project-page'>
       <nav className="project-nav">
         <h2>Palette Picker</h2>
-        <BrowserRouter>
-        <Link className="back-button" to="/">Back </Link>
-        <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
-        </BrowserRouter>
+        <div className='nav-buttons'>
+          <img alt="Back Arrow Icon" className="back-arrow-icon"
+            src={require("../../images/icons/down-arrow.svg")}/>
+          <BrowserRouter>
+          <Link className="back-button" to="/">
+          Back </Link>
+          <Link className="sign-out" to="/" onClick={() => setUser({})}>Sign Out</Link>
+          </BrowserRouter>
+        </div>
       </nav>
       <div className='project-div'>
         <h2>Project {id}</h2>
