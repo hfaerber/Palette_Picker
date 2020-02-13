@@ -1,11 +1,13 @@
 # Palette Picker 
 
 [Deployed site](https://palette-picks-fe.herokuapp.com/)
+<br>
 [Backend](https://github.com/hfaerber/Palette_Picks)
 
 Contributors: 
 
 [Cameron MacRae](https://github.com/cammac60)
+<br>
 [Heather Faerber](https://github.com/hfaerber)
 
 ## Overview
