@@ -26,11 +26,11 @@ You will then be directed to the homepage where you can sign out and create new 
 
 If you scroll down further you will see a section where you can create a new palette. Colors can be chosen manually using a hex code or randomly by clicking the randomize button. There is also a locking mechanism for each color so that you can keep colors you like while continuing to randomize others. Once you are satisfied with the palette simply select the project that it belongs to and give it a name. After clicking the create button your palette will be saved under the selected project. 
 
-<img width="1440" alt="Screen Shot 2020-02-12 at 5 37 17 PM" src="https://user-images.githubusercontent.com/47998896/74390634-1daa1700-4dbf-11ea-9114-aa2bca7bc5d9.png">
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 42 51 PM" src="https://user-images.githubusercontent.com/47998896/74390742-6a8ded80-4dbf-11ea-9bbf-2b0f130e4d09.png">
 
 If you scroll back up and click on a project you will be taken to a project page. From here you can use the menu options at the top to sign out or go back to the homepage. You can also delete the project or some of the palettes within it by using the delete project button or by clicking the trash icon next to a palette. 
 
-<img width="1440" alt="Screen Shot 2020-02-12 at 5 42 51 PM" src="https://user-images.githubusercontent.com/47998896/74390742-6a8ded80-4dbf-11ea-9bbf-2b0f130e4d09.png">
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 43 43 PM" src="https://user-images.githubusercontent.com/47998896/74391352-33b8d700-4dc1-11ea-983c-1021f9aa190c.png">
 
 ### Known Bugs/Future Iterations
 
