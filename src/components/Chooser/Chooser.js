@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addPalette } from '../../apiCalls';
 import './Chooser.scss';
+import PropTypes from 'prop-types';
 
 export const Chooser = props => {
 
@@ -168,3 +169,7 @@ export const Chooser = props => {
 }
 
 export default Chooser;
+
+Chooser.propTypes = {
+  projects: PropTypes.array
+};

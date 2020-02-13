@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import './Login.scss';
+import PropTypes from 'prop-types';
 
 export const handleChange = (event, setError, setUsername, setPassword) => {
   const { id, value } = event.target;
@@ -52,3 +53,7 @@ export const Login = props => {
 }
 
 export default withRouter(Login);
+
+Login.propTypes = {
+  setUser: PropTypes.func,
+};
