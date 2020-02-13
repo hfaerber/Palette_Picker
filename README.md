@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Palette Picker 
 
-## Available Scripts
+[Deployed site](https://palette-picks-fe.herokuapp.com/)
+[Backend](https://github.com/hfaerber/Palette_Picks)
 
-In the project directory, you can run:
+Contributors: 
 
-### `npm start`
+[Cameron MacRae](https://github.com/cammac60)
+[Heather Faerber](https://github.com/hfaerber)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  Palette Picker is an application for designing color palettes and allows users to create custom palettes that can be saved to a project. 
+  
+### How to Use: 
 
-### `npm test`
+Once on the landing page, sing in to continue. As of 02-12-20 you can sign in with any name or password as long as the fields are filled in. See [Known Bugs/Future Iterations](###-known-bugs/future-iterations) for more details. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 31 00 PM" src="https://user-images.githubusercontent.com/47998896/74390127-8bedda00-4dbd-11ea-82cb-9c76e0a7347e.png">
 
-### `npm run build`
+You will then be directed to the homepage where you can sign out and create new projects. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 37 17 PM" src="https://user-images.githubusercontent.com/47998896/74390418-76c57b00-4dbe-11ea-899d-bb37c54cdb4a.png">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+If you scroll down further you will see a section where you can create a new palette. Colors can be chosen manually using a hex code or randomly by clicking the randomize button. There is also a locking mechanism for each color so that you can keep colors you like while continuing to randomize others. Once you are satisfied with the palette simply select the project that it belongs to and give it a name. After clicking the create button your palette will be saved under the selected project. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 37 17 PM" src="https://user-images.githubusercontent.com/47998896/74390634-1daa1700-4dbf-11ea-9114-aa2bca7bc5d9.png">
 
-### `npm run eject`
+If you scroll back up and click on a project you will be taken to a project page. From here you can use the menu options at the top to sign out or go back to the homepage. You can also delete the project or some of the palettes within it by using the delete project button or by clicking the trash icon next to a palette. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img width="1440" alt="Screen Shot 2020-02-12 at 5 42 51 PM" src="https://user-images.githubusercontent.com/47998896/74390742-6a8ded80-4dbf-11ea-9bbf-2b0f130e4d09.png">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Known Bugs/Future Iterations
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- There is a bug that is causing some of the selected colors to appear transparent even when a hex is entered after clicking the radnomize button. To get around this, simply type in or remove a character and add it back. 
+- Since anyone can log in with any username or password all projects and palettes are shared within the database. Meaning that anyone can add or remove any project or palette. This should be solved when real sign in validation is implemented. 
+- We would like to add the ability for users to be able to edit project and palette names as well as change the color scheme of a palette after it has been added. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Dev Setup Instructions
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Clone this repo.
+- Cd into the root repository and run `npm i` or `npm install` to install all dependencies. 
+- `npm start` to get the repo up and running on localhost:3000.
+- The testing suite can be run with `npm test`.
