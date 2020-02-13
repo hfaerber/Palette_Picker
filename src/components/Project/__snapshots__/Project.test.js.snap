@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Project Should match snapshot when no palettes exist for a project 1`] = `
+exports[`Project Should match snapshot 1`] = `
 <div
   className="project-page"
 >
@@ -50,7 +50,9 @@ exports[`Project Should match snapshot when no palettes exist for a project 1`] 
   <div
     className="project-div"
   >
-    <h2 />
+    <h2
+      id="project-name-display"
+    />
     <button
       className="delete-project-button"
       onClick={[Function]}

@@ -16,11 +16,27 @@ describe('Project', () => {
       ];
   });
 
-  it('Should match snapshot when no palettes exist for a project', () => {
+  it('Should match snapshot', () => {
     wrapper = shallow(<Project
       projects={mockProjects}
     />)
     expect(wrapper).toMatchSnapshot();
   });
-  
+
+  it('Should render without crashing', () => {
+    const div = document.createElement("div");
+    ReactDOM.render(<BrowserRouter><Project
+      projects={mockProjects}
+    /></BrowserRouter>, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
+  it('Should load with initial username of an empty string', () => {
+    const { container } = render(<BrowserRouter><Project
+      projects={mockProjects}
+    /></BrowserRouter>);
+    const projectsDisplay = container.querySelector('#project-name-display');
+    expect(projectsDisplay.textContent).toBe('');
+  });
+
 });
