@@ -14,7 +14,7 @@ Contributors:
   
 ### How to Use: 
 
-Once on the landing page, sing in to continue. As of 02-12-20 you can sign in with any name or password as long as the fields are filled in. See [Known Bugs/Future Iterations](###-known-bugs/future-iterations) for more details. 
+Once on the landing page, sign in to continue. As of 02-12-20 you can sign in with any name or password as long as the fields are filled in. See [Known Bugs/Future Iterations](#-known-bugs/future-iterations) for more details. 
 
 <img width="1440" alt="Screen Shot 2020-02-12 at 5 31 00 PM" src="https://user-images.githubusercontent.com/47998896/74390127-8bedda00-4dbd-11ea-82cb-9c76e0a7347e.png">
 
