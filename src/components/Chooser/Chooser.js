@@ -16,6 +16,7 @@ export const Chooser = props => {
   const [selectedProject, selectProject] = useState('');
   const [paletteName, setPaletteName] = useState('');
   const [error, setError] = useState('none');
+  const [successMessage, setSuccessMessage] = useState('')
 
   const projectOptions = props.projects.map(project => {
     return (
@@ -95,12 +96,18 @@ export const Chooser = props => {
         color_five: `#${colors[4].color}`
       };
       addPalette(selectedProject, body);
+      timedSuccessMessage();
       setPaletteName('');
       setError('none');
     } else {
         setError('block');
     }
   };
+
+  const timedSuccessMessage = () => {
+    setSuccessMessage('Palette Created!');
+    setTimeout(() => setSuccessMessage(''), 2000);
+  }
 
   const handleNameChange = event => {
     if (checkColors()) {
@@ -162,6 +169,7 @@ export const Chooser = props => {
           <input className="palette-name" placeholder="Name" value={paletteName} onChange={e => handleNameChange(e)}/>
           <button className="add-palette" onClick={() => validateSubmit()}>Create</button>
           <span className="error" style={{display: error}}>Please fill out a name and all five colors with a valid hex code</span>
+          <h3>{successMessage}</h3>
         </div>
       </section>
     </div>
