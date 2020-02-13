@@ -244,6 +244,7 @@ exports[`Chooser Should match the snapshot 1`] = `
       >
         Please fill out a name and all five colors with a valid hex code
       </span>
+      <h3 />
     </div>
   </section>
 </div>
