@@ -4,6 +4,7 @@ import { addProject, getProjects } from '../../apiCalls.js';
 import Chooser from '../Chooser/Chooser';
 import './Home.scss';
 import { BrowserRouter, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 export const handleProjectSubmit = async projectHooks => {
@@ -75,3 +76,10 @@ export const Home = props => {
 }
 
 export default withRouter(Home);
+
+Home.propTypes = {
+  user: PropTypes.string,
+  setUser: PropTypes.func,
+  projects: PropTypes.array,
+  setProjects: PropTypes.func
+};

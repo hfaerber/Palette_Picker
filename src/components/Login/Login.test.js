@@ -16,7 +16,7 @@ describe('Login', () => {
     />);
     expect(wrapper).toMatchSnapshot();
   })
-  
+
   it('Should render without crashing', () => {
     const div = document.createElement("div");
     ReactDOM.render(<Login />, div);

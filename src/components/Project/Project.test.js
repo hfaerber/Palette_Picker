@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
 import { Project } from './Project.js';
 import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+
 
 describe('Project', () => {
   let wrapper, mockProjects;

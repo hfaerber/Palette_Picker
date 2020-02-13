@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { getPalettes, removeItem } from '../../apiCalls';
 import './Project.scss';
+import PropTypes from 'prop-types';
 
 export const handleDelete = async (id, item, hooks) => {
   const response = await removeItem(id, item);
@@ -68,7 +69,7 @@ export const Project = props => {
         </div>
       </nav>
       <div className='project-div'>
-        <h2>{project && project.name}</h2>
+        <h2 id='project-name-display'>{project && project.name}</h2>
         <button className='delete-project-button'
           onClick={() => handleDelete(id, 'project', removeItemHooks)}>
           Delete Project</button>
@@ -82,3 +83,11 @@ export const Project = props => {
 }
 
 export default withRouter(Project);
+
+Project.propTypes = {
+  id: PropTypes.string,
+  user: PropTypes.string,
+  setUser: PropTypes.func,
+  projects: PropTypes.array,
+  setProjects: PropTypes.func
+};
