@@ -13,6 +13,7 @@ export const handleProjectSubmit = async projectHooks => {
       const projectID = await addProject(projectHooks.newProject);
       const newProjectObj =  await getProjects(projectID.id);
       projectHooks.setProjects([...projectHooks.projects, newProjectObj]);
+      timedSuccessMessage(projectHooks.setSuccessMessage);
       projectHooks.setNewProject('');
     } catch(error) {
         console.log(error);
@@ -23,11 +24,17 @@ export const handleProjectSubmit = async projectHooks => {
   }
 };
 
+export const timedSuccessMessage = (setSuccessMessage) => {
+  setSuccessMessage('Project Created!');
+  setTimeout(() => setSuccessMessage(''), 2000);
+}
+
 export const Home = props => {
   const [newProject, setNewProject] = useState('');
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('')
   const { user, setUser, projects, setProjects } = props;
-  const addProjectHooks = {newProject, setNewProject, projects, setProjects, setError};
+  const addProjectHooks = {newProject, setNewProject, projects, setProjects, setError, setSuccessMessage};
   const projectNodes = projects.map(project => {
     return (
       <div className="project-button" key={project.id} id={project.id}
@@ -55,6 +62,7 @@ export const Home = props => {
           <div className="projects-header">
             <h3>Your Projects:</h3>
             <span className="add-project-error">{error}</span>
+            <span>{successMessage}</span>
             <div className="add-project-wrapper">
               <input className="add-project" type="text"
                 placeholder="New Project" onChange={e => {
